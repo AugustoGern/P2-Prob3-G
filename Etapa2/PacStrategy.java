@@ -1,3 +1,4 @@
+
 /**
  *
  * @author akrehn
@@ -11,9 +12,6 @@ public class PacStrategy implements EntregaStrategy {
             instancia = new PacStrategy();
         }
         return instancia;
-    }
-    private PacStrategy(){
-    
     }
 
     @Override
@@ -34,4 +32,3 @@ public class PacStrategy implements EntregaStrategy {
     }
 
 }
-

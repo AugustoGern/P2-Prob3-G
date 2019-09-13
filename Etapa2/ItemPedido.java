@@ -1,33 +1,29 @@
+
 /**
  *
  * @author akrehn
  */
-
 class ItemPedido {
 
     private Produto produto;
     private int quantidade;
 
-    /**
-     * @param produto
-     * @param quantidade
-     */
     protected ItemPedido(Produto produto, int quantidade) {
         setProduto(produto);
         setQuantidade(quantidade);
     }
-/**
- * 
- * Getters e Setters: 
- */
 
+    /**
+     *
+     * Getters e Setters:
+     */
     protected Produto getProduto() {
         return produto;
     }
 
     protected void setProduto(Produto produto) {
         if (produto == null) {
-            throw new IllegalArgumentException("Deve ser definido um produto");
+            throw new IllegalArgumentException("Produto inválido");
         } else {
             this.produto = produto;
         }
@@ -39,7 +35,7 @@ class ItemPedido {
 
     protected void setQuantidade(int quantidade) {
         if (quantidade <= 0) {
-            throw new IllegalArgumentException("Quantidade de itens de pedido deve ser maior que ZERO");
+            throw new IllegalArgumentException("Quantidade inválida");
         } else {
             this.quantidade = quantidade;
         }

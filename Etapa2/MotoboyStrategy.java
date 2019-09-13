@@ -17,7 +17,7 @@ public class MotoboyStrategy implements EntregaStrategy {
     public double getValor(Pedido pedido) {
 
         if (pedido.getMassa() > 25000 || pedido.getQuantidadeItens() > 30) {
-            throw new TipoEntregaInvalido();
+            throw new TipoEntregaInvalido();//chama o runtimeexception
         }
         return 7;
     }

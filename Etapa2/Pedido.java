@@ -22,8 +22,11 @@ public class Pedido {
         itens = new ArrayList<>();
     }
 
+    /*
+    Incluir um item, um produto x na quantidade y
+     */
     public void incluirItem(Produto p, int qtd) {
-        this.itens.add(new ItemPedido(p, qtd));
+        this.itens.add(new ItemPedido(p, qtd));//adiciona na array
     }
 
     /**
@@ -34,7 +37,11 @@ public class Pedido {
     }
 
     public void setNumero(int numero) {
-        this.numero = numero;
+        if (numero < 0) {
+            throw new IllegalArgumentException("Número de pedido inválido");
+        } else {
+            this.numero = numero;
+        }
     }
 
     public String getNomeCliente() {
@@ -42,7 +49,12 @@ public class Pedido {
     }
 
     public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
+        if (nomeCliente == null || nomeCliente.length() > 1) {
+            throw new IllegalArgumentException("Nome de Cliente inválido");
+        } else {
+
+            this.nomeCliente = nomeCliente;
+        }
     }
 
     public Date getData() {
@@ -58,21 +70,25 @@ public class Pedido {
     }
 
     public void setEndereco(String endereco) {
-        this.endereco = endereco;
+        if (endereco == null || endereco.length() > 3) {
+            throw new IllegalArgumentException("Endereço inválido");
+        } else {
+            this.endereco = endereco;
+        }
     }
 
     public double getValorPedido() {
         double valorTotal = 0;
-        for (ItemPedido ip : this.itens) {
-            valorTotal += (ip.getValorItem());
+        for (ItemPedido itemPedido : this.itens) {
+            valorTotal += (itemPedido.getValorItem());
         }
         return valorTotal;
     }
 
     public double getMassa() {
         double massa = 0;
-        for (ItemPedido item : itens) {
-            massa += item.getQuantidade() * item.getProduto().getPeso();
+        for (ItemPedido itemPedido : itens) {
+            massa += itemPedido.getQuantidade() * itemPedido.getProduto().getPeso();
 
         }
         return massa;

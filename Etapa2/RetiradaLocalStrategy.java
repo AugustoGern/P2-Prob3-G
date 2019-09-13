@@ -1,3 +1,4 @@
+
 /**
  *
  * @author akrehn
@@ -13,18 +14,9 @@ public class RetiradaLocalStrategy implements EntregaStrategy {
         return instancia;
     }
 
-    private RetiradaLocalStrategy() {
-
-    }
-
     @Override
     public double getValor(Pedido pedido) {
         return 0;
     }
 
 }
-
-
-
-
-

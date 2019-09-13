@@ -1,3 +1,4 @@
+
 /**
  *
  * @author akrehn
@@ -8,28 +9,23 @@ public class Produto {
     private double valor;
     private int peso;
 
-    /**
-     * @param descricao
-     * @param valor
-     * @param peso
-     */
     public Produto(String descricao, double valor, int peso) {
         setDescricao(descricao);
         setValor(valor);
         setPeso(peso);
     }
+
     public void setPeso(int peso) {
         if (peso <= 0) {
-            throw new IllegalArgumentException("Peso do produto deve ser acima de ZERO");
+            throw new IllegalArgumentException("Peso inválido");
         } else {
             this.peso = peso;
         }
     }
-    
+
     /**
      * Getters e Setters :
      */
-
     public String getDescricao() {
         return descricao;
     }
@@ -43,12 +39,16 @@ public class Produto {
     }
 
     public void setValor(double valor) {
-        this.valor = valor;
+        if (valor <= 0) {
+            throw new IllegalArgumentException("Valor inválido");
+        } else {
+
+            this.valor = valor;
+        }
     }
 
     public int getPeso() {
         return peso;
     }
 
-    
 }

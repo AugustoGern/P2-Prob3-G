@@ -1,0 +1,15 @@
+/**
+ *
+ * @author anuska
+ */
+public class Singleton {
+    
+    private static TipoEntrega instancia;
+    
+    
+    public static TipoEntrega getInstance(TipoEntrega tipo){
+        instancia = tipo;
+        return instancia;
+    }
+    
+}
